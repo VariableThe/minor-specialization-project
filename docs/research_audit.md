@@ -83,3 +83,8 @@ The links below point to the supplied PDFs, including filenames that contain spa
 [B5]: https://github.com/VariableThe/minor-specialization-project/blob/main/papers/student_b/B5%20-%20Wearable%20Sensor-Based%20Behavioral%20User%20Authentication%20Using%20a%20Hybrid%20Deep%20Learning%20Approach%20with%20Squeeze-and-Excitation%20M.pdf
 [B6]: https://github.com/VariableThe/minor-specialization-project/blob/main/papers/student_b/B6%20-%20Real-time%20multiple%20people%20gait%20recognition%20in%20the%20edge.pdf
 [B7]: https://github.com/VariableThe/minor-specialization-project/blob/main/papers/student_b/B7%20-%20Efficient%20Gait%20Recognition%20with%20SEGait-ConViT%20-%20A%20Vision%20Transformer%20Model%20Enhanced%20by%20Sparse%20Edge%20Information.pdf
+
+
+## Implemented follow-up experiments
+
+The [research-extension report](https://github.com/VariableThe/gait-biometrics/blob/feat/research-metric-learning/reports/2026-10-23-quality/README.md) now measures balanced batch-hard and supervised contrastive training, multiscale/temporal encoders, frozen normalization, augmentation, statistical descriptors, covariance normalization and within-recording enrollment. These are adaptations, not reproductions or cross-session authentication evidence. It retains all candidates, a failed HAR neural result, an explicitly exploratory subject-CV follow-up, and complete inference trade-offs. [Reproduction guide](https://github.com/VariableThe/gait-biometrics/blob/feat/research-metric-learning/docs/research_experiments.md).
