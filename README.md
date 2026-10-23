@@ -27,7 +27,7 @@ Frozen-code full 20-epoch walking results on Darkstar:
 
 These are held-out-subject comparisons within existing recordings. They do not demonstrate cross-session continuous authentication. The historical HAR EER 0.4162 used all activities and a different pair protocol and is not a directly comparable baseline. The fixed-threshold errors above remain too high for deployment.
 
-All five activity tracks also completed fresh 20-epoch full-data runs. A separate local four-validation-subject DeepConvLSTM run reached HAR activity accuracy 0.936885; the five-subject sweep has different results, all included in the [complete measured report](https://github.com/VariableThe/gait-biometrics/blob/fix/reproducible-gait-authentication/reports/2026-10-23/README.md).
+All five activity tracks also completed fresh 20-epoch full-data runs. A separate local four-validation-subject DeepConvLSTM run reached HAR activity accuracy 0.936885; the five-subject sweep has different results, all included in the [complete measured report](https://github.com/VariableThe/gait-biometrics/blob/d006d0a/reports/2026-10-23/README.md).
 
 Controlled equal-output CSV windowing is 15.72x faster. Identical synthetic embedding workloads measured CPU-to-CUDA training/inference speedups of 10.98x/12.59x on Wiker and 9.83x/15.98x on Darkstar. These are execution measurements, separate from biometric quality. The full report includes hardware, raw timings, changed real-data retention, validation cohorts, complete metrics and limitations.
 
