@@ -31,13 +31,24 @@ All five activity tracks also completed fresh 20-epoch full-data runs. A separat
 
 Controlled equal-output CSV windowing is 15.72x faster. Identical synthetic embedding workloads measured CPU-to-CUDA training/inference speedups of 10.98x/12.59x on Wiker and 9.83x/15.98x on Darkstar. These are execution measurements, separate from biometric quality. The full report includes hardware, raw timings, changed real-data retention, validation cohorts, complete metrics and limitations.
 
+## Research extensions
+
+The identity/protocol PRs are now merged in all three owned repositories. The [research-extension evidence](https://github.com/VariableThe/gait-biometrics/blob/feat/research-metric-learning/reports/2026-10-23-quality/README.md) records 36 final 40-epoch neural runs, three seeds per method, statistical baselines and a separate enrollment protocol.
+
+| Source and method | Baseline EER | New EER | Evidence |
+| --- | ---: | ---: | --- |
+| WISDM multiscale batch-hard ensemble | 0.2010 | **0.0958** | Validation-locked primary comparison |
+| HAR descriptors + covariance normalization | 0.1764 | **0.1044** | Exploratory subject-CV follow-up; test already inspected |
+
+The primary HAR neural winner worsened to EER 0.2146 despite low validation EER. This negative result is retained; the secondary HAR method selects its transformation using three disjoint folds over training identities, reserving four other identities for calibration. It needs a fresh cohort for confirmation. WISDM fixed test FAR/FRR fell to 0.0826/0.1072; secondary HAR reached 0.0054/0.3046. These errors still do not establish usable passive authentication.
+
+Implemented methods include identity-balanced batches, batch-hard and supervised contrastive objectives, multiscale/temporal encoders, train-only frozen normalization, physical sensor augmentation, statistics fusion, covariance-normalized descriptors, uniform seed ensembles and prefix-template enrollment. All candidates and complete histories are reported. New models use less stored parameter space but can be slower; latency and numerical-equivalence benchmarks are separate from biometric results. See the [reproduction guide](https://github.com/VariableThe/gait-biometrics/blob/feat/research-metric-learning/docs/research_experiments.md).
+
 ## Run the project
 
 ```bash
 git clone https://github.com/VariableThe/gait-biometrics.git
 cd gait-biometrics
-# Until merged, use the contribution branch:
-git switch fix/reproducible-gait-authentication
 uv venv --python 3.14
 uv pip install --python .venv/bin/python --compile-bytecode -r requirements-dev.txt
 uv run --no-project --python .venv/bin/python python -m scripts.run_experiments --prepare --device auto
