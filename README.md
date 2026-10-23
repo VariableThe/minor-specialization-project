@@ -44,6 +44,40 @@ The primary HAR neural winner worsened to EER 0.2146 despite low validation EER.
 
 Implemented methods include identity-balanced batches, batch-hard and supervised contrastive objectives, multiscale/temporal encoders, train-only frozen normalization, physical sensor augmentation, statistics fusion, covariance-normalized descriptors, uniform seed ensembles and prefix-template enrollment. All candidates and complete histories are reported. New models use less stored parameter space but can be slower; latency and numerical-equivalence benchmarks are separate from biometric results. See the [reproduction guide](https://github.com/VariableThe/gait-biometrics/blob/feat/research-metric-learning/docs/research_experiments.md).
 
+## Controlled scaling and cross-day follow-up
+
+The next [48-run GPU study](https://github.com/VariableThe/gait-biometrics/blob/04e824ca4aa07046d7b13cc9f4d40ac141dfc9b7/reports/2026-10-23-scaling/README.md)
+compares width 32/96 encoders and linear/ArcFace identity heads with three subject
+folds, two seeds and 40 fixed final epochs. Four other users per source calibrate
+thresholds after selection. Source TEST is never loaded in this study.
+
+| Development mean fold EER | Small linear | Larger ArcFace | Selected descriptors |
+| --- | ---: | ---: | ---: |
+| HAR | 18.203% | 18.593% | **11.647%** |
+| WISDM | 18.560% | 16.250% | **12.633%** |
+
+These are development comparisons. Scaling helps WISDM, slightly worsens HAR,
+and loses to descriptor controls on both. BF16 was slower in every matched GPU
+shape, so FP32 remains the default. All candidates, histories, raw timings and
+failures are retained; mirrors are the same experiments, not replications.
+
+The [first genuine cross-day experiment](https://github.com/VariableThe/gait-biometrics/blob/f9bcf48/reports/2026-10-23-cross-day/README.md)
+uses the public Santos v7 dataset and a predeclared 15/5/5 development/calibration/test
+identity split. Day1 enrollment against day2 probes from five untouched users
+gives **7.0% EER**, **0.9888 AUC**, and calibration-frozen **0.5% FAR / 22% FRR**.
+There are only 50 genuine and 200 impostor claims; user 6 has 8/10 genuine claims rejected.
+This establishes a small controlled leg-sensor result, with substantial usability
+limits. Its scores cannot be treated as a controlled improvement over another
+dataset. The archive, actual day labels, source/config/metric hashes, calibration
+lock and single test attempt are preserved.
+
+New contributions: [scaling origin](https://github.com/VariableThe/gait-biometrics/pull/3),
+[scaling mirror](https://github.com/VariableThe/gait-biometrics-student-b/pull/6),
+[cross-day origin](https://github.com/VariableThe/gait-biometrics/pull/4),
+[cross-day mirror](https://github.com/VariableThe/gait-biometrics-student-b/pull/7).
+Local final suites passed 331 tests + 311 subtests in the merged project and 327 + 311
+in Student B. Source/lock/evidence reviews are separate from those test runs.
+
 ## Run the project
 
 ```bash
@@ -60,4 +94,4 @@ The original CI-2026 archives remain useful for legacy CSV comparisons. `source=
 
 ## Next scientific deliverables
 
-Collect or recover genuine session/date/recording metadata; separate enrollment, calibration and later-session probes; exclude overlapping genuine probes; measure per-user error uncertainty and takeover detection delay; test device/orientation shift; implement and evaluate online walking gating and fallback decisions. [The research audit](docs/research_audit.md) explains which papers guide these experiments and which supplied papers use different modalities. No architecture is claimed as an exact paper reproduction without evidence.
+Expand the cross-day population and add genuine repeated phone sessions; preserve separate enrollment, calibration and later-session probes; measure per-user error uncertainty and takeover detection delay; test device/orientation shift; implement and evaluate online walking gating and fallback decisions. [The research audit](docs/research_audit.md) explains which papers guide these experiments and which supplied papers use different modalities. No architecture is claimed as an exact paper reproduction without evidence.
