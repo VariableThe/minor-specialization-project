@@ -8,6 +8,8 @@ This project studies passive user authentication from phone/wearable inertial ga
 
 The [multisensor and calibrated-decision hillclimb](docs/hillclimb_results.md) adds six-axis fusion, rotation invariants, lagged covariance and enrollment-score blending. On five **previously inspected** Santos cross-day users, the latest DEV-selected method has descriptive EER 0%, but its independently calibrated operating threshold still accepts **3/200 impostor claims (1.5%)**, with **0/50 genuine rejections**. The matched lagcov control accepts 7/200 and rejects 0/50. This exploratory result does not prove perfect authentication or meet the intended 1% test FAR. Full candidate matrices, failed audit compute, per-user errors, source hashes and CPU timings accompany the code.
 
+A subsequent [DEV-only calibration comparison](https://github.com/VariableThe/gait-biometrics/blob/main/reports/2026-10-24-calibration/README.md) nominates pooled calibration followed by metric refitting: mean validation FAR 0.917%→0.836% and FRR 19.276%→15.126%, with 12/15 users no worse. One user remains completely rejected. It opens no original CALIB/TEST data and does not change the published test result; exact count-based gates, the discarded first attempt and full per-user outcomes are retained.
+
 ## Repositories
 
 - [Merged runnable project](https://github.com/VariableThe/gait-biometrics): model-facing data adapter, A's standalone pipeline, B's models, C's evaluation and reproducible full experiments.
