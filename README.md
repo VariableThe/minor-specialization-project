@@ -10,6 +10,8 @@ The [multisensor and calibrated-decision hillclimb](docs/hillclimb_results.md) a
 
 A subsequent [DEV-only calibration comparison](https://github.com/VariableThe/gait-biometrics/blob/main/reports/2026-10-24-calibration/README.md) nominates pooled calibration followed by metric refitting: mean validation FAR 0.917%→0.836% and FRR 19.276%→15.126%, with 12/15 users no worse. One user remains completely rejected. It opens no original CALIB/TEST data and does not change the published test result; exact count-based gates, the discarded first attempt and full per-user outcomes are retained.
 
+The [existing-data engineering follow-up](https://github.com/VariableThe/gait-biometrics/blob/main/reports/2026-10-24-engineering/README.md) closes audited trainer/setup/numerical bugs, adds exact raw-sample exclusion, recoverable CPU/CUDA training, a source-bound walking gate and continuous inference/fallback tools, and pins CPU/CUDA environments with CI. The walking detector reached 91.22% balanced accuracy on six held DEV users; this is an activity result. The 100-fit raw/Z/S follow-up retains raw scoring: S reduces mean FRR to 12.45% but increases high-FAR splits, failing the registered gate. No published TEST threshold changes.
+
 ## Repositories
 
 - [Merged runnable project](https://github.com/VariableThe/gait-biometrics): model-facing data adapter, A's standalone pipeline, B's models, C's evaluation and reproducible full experiments.
@@ -89,9 +91,8 @@ in Student B. Source/lock/evidence reviews are separate from those test runs.
 ```bash
 git clone https://github.com/VariableThe/gait-biometrics.git
 cd gait-biometrics
-uv venv --python 3.14
-uv pip install --python .venv/bin/python --compile-bytecode -r requirements-dev.txt
-uv run --no-project --python .venv/bin/python python -m scripts.run_experiments --prepare --device auto
+uv sync --frozen --extra cpu --compile-bytecode
+uv run --frozen --extra cpu python -m scripts.run_experiments --prepare --device cpu
 ```
 
 The downloader uses checksum-verified public HAR/Fordham releases and retains source documentation; OneDrive login and Git LFS are unnecessary for this route. The two default configs train 20 full epochs each and immediately evaluate. Use `--out-root` to preserve prior runs. The merged README covers all five activity models, tests, benchmarks, compression and source contracts.
@@ -100,4 +101,4 @@ The original CI-2026 archives remain useful for legacy CSV comparisons. `source=
 
 ## Next scientific deliverables
 
-Expand the cross-day population and add genuine repeated phone sessions; preserve separate enrollment, calibration and later-session probes; measure per-user error uncertainty and takeover detection delay; test device/orientation shift; implement and evaluate online walking gating and fallback decisions. [The research audit](docs/research_audit.md) explains which papers guide these experiments and which supplied papers use different modalities. No architecture is claimed as an exact paper reproduction without evidence.
+Expand the cross-day population and add genuine repeated phone sessions; preserve separate enrollment, calibration and later-session probes; measure per-user error uncertainty and actual takeover delay; test device/orientation shift and device costs. Walking gating, causal decisions, fallback latching and censored-delay accounting now have tested implementations; their real phone behavior remains unvalidated. The [remaining-problem register](https://github.com/VariableThe/gait-biometrics/blob/main/docs/open_problems.md) records those boundaries. [The research audit](docs/research_audit.md) explains which papers guide these experiments and which supplied papers use different modalities. No architecture is claimed as an exact paper reproduction without evidence.
