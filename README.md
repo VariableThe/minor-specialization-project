@@ -6,9 +6,11 @@ This project studies passive user authentication from phone/wearable inertial ga
 
 ## Latest research — 25 October 2026
 
-The [N446 waveform addendum](docs/native_waveform_results.md) fails its predeclared coverage gate: four boundary failures remain among 960 nondegenerate fixtures. The candidate stops, with all numeric evidence and negative controls retained. Canonical362 stays selected; a distinct nonsegmented full-support comparison is in preparation.
+The [nonsegmented full-support comparison](docs/full_support_results.md) retains Canonical362. Adding 32,600 valid sensor rows worsens clean rejection from 15.126% to 16.655% against the matched aggregation control and fails 14 of 33 replacement gates. All 200 new fits, 100 restored reference states and 660 score sets verify; independent evidence review clears. No TEST threshold changes.
 
-The [joint-repeat study](docs/joint_repeat_results.md) adds 8,640 synthetic extraction records and complete lossless numeric evidence. Gyro resolves the prescribed lag ambiguity, while boundary failures and noise-only finite outputs remain. The current authentication method is retained; native-support waveform preparation is the next bounded step.
+The [N446 waveform addendum](docs/native_waveform_results.md) fails its predeclared coverage gate: four boundary failures remain among 960 nondegenerate fixtures. The candidate stops, with all numeric evidence and negative controls retained. Canonical362 stays selected; the separate nonsegmented full-support comparison has now completed with the baseline retained.
+
+The [joint-repeat study](docs/joint_repeat_results.md) adds 8,640 synthetic extraction records and complete lossless numeric evidence. Gyro resolves the prescribed lag ambiguity, while boundary failures and noise-only finite outputs remain. The current authentication method is retained; the subsequent native-support waveform candidate remains stopped.
 
 The [saved-metadata support inventory](docs/continuity_support_results.md) rules out the proposed fixed 768-sample DEV protocol: only one of 328 continuity segments is long enough, and no person has support on both days. Whole segments preserve raw support for all fifteen people and 33,810 additional valid rows, with extraction and matched controls still untested. Full metadata replay passes in both code repositories; no new authentication result is claimed.
 
