@@ -6,6 +6,8 @@ This project studies passive user authentication from phone/wearable inertial ga
 
 ## Latest research — 25 October 2026
 
+The [joint-repeat study](docs/joint_repeat_results.md) adds 8,640 synthetic extraction records and complete lossless numeric evidence. Gyro resolves the prescribed lag ambiguity, while boundary failures and noise-only finite outputs remain. The current authentication method is retained; native-support waveform preparation is the next bounded step.
+
 The [saved-metadata support inventory](docs/continuity_support_results.md) rules out the proposed fixed 768-sample DEV protocol: only one of 328 continuity segments is long enough, and no person has support on both days. Whole segments preserve raw support for all fifteen people and 33,810 additional valid rows, with extraction and matched controls still untested. Full metadata replay passes in both code repositories; no new authentication result is claimed.
 
 The [longer-support and plateau follow-up](docs/cycle_feasibility_results.md) preserves 5,120 synthetic comparison rows. Longer windows reduce missing pairs from 192 to one per lag rule, with half-period aliases retained. A separately reviewed twelve-fixture plateau regression clears that numerical tie while keeping all guard failures and aliases. No cycle DEV model or new biometric result is claimed.
