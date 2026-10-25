@@ -1,5 +1,18 @@
 # Cycle feasibility and exact failure-inclusive ROC
 
+The [longer-window addendum](https://github.com/VariableThe/gait-biometrics/tree/research/cycle-feasibility-20261025/reports/2026-10-25-cycle-length)
+extends only the fixed synthetic support, from 256 to 768 samples. Both lag rules
+give 959/1,280 finite outputs, one missing-pair failure, 320 gyro guard failures
+and 96 finite half-period aliases. The 5,120 saved comparison rows preserve all
+failures; the larger guard count reflects weak signals that previously failed
+earlier for missing pairs. A separate, outcome-informed twelve-fixture plateau
+regression fixes the remaining equal-adjacent-sample minimum, raising finite
+extraction from 8/12 to 9/12 per lag rule while retaining three guard failures
+and three finite aliases. Independent reviews verify both bundles. A preserved
+JSON-key-order fingerprint defect has a separate erratum; the original failed
+audit is not relabelled a strict pass. This remains synthetic numerical work,
+not a cycle DEV model or new authentication result.
+
 Keep Canonical362 as the exploratory DEV nominee. The proposed cycle descriptor
 needs a revised protocol before a DEV model fit. A fixed synthetic feasibility
 check found limitations in the current 256-sample, 100 Hz support:

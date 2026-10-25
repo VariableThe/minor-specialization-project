@@ -6,6 +6,8 @@ This project studies passive user authentication from phone/wearable inertial ga
 
 ## Latest research — 25 October 2026
 
+The [longer-support and plateau follow-up](docs/cycle_feasibility_results.md) preserves 5,120 synthetic comparison rows. Longer windows reduce missing pairs from 192 to one per lag rule, with half-period aliases retained. A separately reviewed twelve-fixture plateau regression clears that numerical tie while keeping all guard failures and aliases. No cycle DEV model or new biometric result is claimed.
+
 The [short-window cycle feasibility check](docs/cycle_feasibility_results.md) tests 1,280 fixed synthetic windows before a cycle-model fit: 848 finite outputs, 432 failures and 96 finite half-stride aliases. Keep Canonical362 while redesigning the cycle protocol. The new exact-count ROC utility retains failed claims and fixes floating-point EER edge cases; this adds no new biometric or TEST result.
 
 The [paired nuisance-covariance study](docs/nuisance_covariance_results.md) reduces mean gain/noise rejection from 45.607% to 15.241%, but fails thirteen safety gates because clean errors and some stressed false-accept behavior worsen. Retain Canonical362. All 200 fits, 440 score sets and 541 geometry contexts verify; no new TEST result is claimed.
