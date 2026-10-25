@@ -6,6 +6,8 @@ This project studies passive user authentication from phone/wearable inertial ga
 
 ## Latest research — 25 October 2026
 
+The [paired nuisance-covariance study](docs/nuisance_covariance_results.md) reduces mean gain/noise rejection from 45.607% to 15.241%, but fails thirteen safety gates because clean errors and some stressed false-accept behavior worsen. Retain Canonical362. All 200 fits, 440 score sets and 541 geometry contexts verify; no new TEST result is claimed.
+
 The [canonical orientation follow-up](docs/canonical_orientation_results.md) nominates an IDNet-inspired low-FAR DEV alternative: mean FAR 0.836%→0.500%, FRR 15.126%→14.787%, with 10/15 users no worse. Under the specified 30°/90° constant-coordinate rotations, its FRR stays 14.787% versus 85.190%/99.500% for control. EER worsens, five users have higher rejection, and noise/gain weaknesses remain. This is an exploratory DEV nomination, with no new TEST result or phone-deployment claim.
 
 The [robustness and simulation round](docs/robustness_results.md) completed 300 CPU covariance fits, 660 score replays and 297 timed synthetic policy replays. Neither full nor matrix-log covariance beats the retained control under all clean DEV gates. Fixed-threshold probe stresses expose large rotation/noise rejection failures. No original CALIB/TEST data was opened, and no published TEST result changes. Main and Student B suites pass 996/992 tests, each with 1,545 subtests.
