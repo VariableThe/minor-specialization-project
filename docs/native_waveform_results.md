@@ -37,5 +37,7 @@ The separately proposed next comparison uses unchanged Canonical362 without
 repeat segmentation. It would compare the frozen nominee, historical-support
 descriptor averaging and a full-support cover with exact overlap weights.
 Its hypothesis concerns support and aggregation, not repairing this waveform.
-It remains preparation work with no fits or outcome. Any later execution needs
-its own protocol/source/runtime freeze and review; CALIB/TEST stay closed.
+The [separate comparison](full_support_results.md) has now completed its own
+reviewed freeze and 200-fit DEV run. It worsens the registered support outcome
+and retains Canonical362. This does not repair or retry the waveform candidate;
+CALIB/TEST stayed closed.
