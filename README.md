@@ -4,7 +4,9 @@
 
 This project studies passive user authentication from phone/wearable inertial gait signals. The complete pipeline runs, but authentication errors and unverified session generalization still make it a research system.
 
-## Latest research — 24 October 2026
+## Latest research — 25 October 2026
+
+The [robustness and simulation round](docs/robustness_results.md) completed 300 CPU covariance fits, 660 score replays and 297 timed synthetic policy replays. Neither full nor matrix-log covariance beats the retained control under all clean DEV gates. Fixed-threshold probe stresses expose large rotation/noise rejection failures. No original CALIB/TEST data was opened, and no published TEST result changes. Main and Student B suites pass 996/992 tests, each with 1,545 subtests.
 
 The [multisensor and calibrated-decision hillclimb](docs/hillclimb_results.md) adds six-axis fusion, rotation invariants, lagged covariance and enrollment-score blending. On five **previously inspected** Santos cross-day users, the latest DEV-selected method has descriptive EER 0%, but its independently calibrated operating threshold still accepts **3/200 impostor claims (1.5%)**, with **0/50 genuine rejections**. The matched lagcov control accepts 7/200 and rejects 0/50. This exploratory result does not prove perfect authentication or meet the intended 1% test FAR. Full candidate matrices, failed audit compute, per-user errors, source hashes and CPU timings accompany the code.
 
