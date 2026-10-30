@@ -30,6 +30,10 @@ A subsequent [DEV-only calibration comparison](https://github.com/VariableThe/ga
 
 The [existing-data engineering follow-up](https://github.com/VariableThe/gait-biometrics/blob/main/reports/2026-10-24-engineering/README.md) closes audited trainer/setup/numerical bugs, adds exact raw-sample exclusion, recoverable CPU/CUDA training, a source-bound walking gate and continuous inference/fallback tools, and pins CPU/CUDA environments with CI. The walking detector reached 91.22% balanced accuracy on six held DEV users; this is an activity result. The 100-fit raw/Z/S follow-up retains raw scoring: S reduces mean FRR to 12.45% but increases high-FAR splits, failing the registered gate. No published TEST threshold changes.
 
+## Hosted deployment
+
+The presentation deck (chart-first slides, per-slide speaker notes) and the PDF exports are deployed at **https://workstation.tail13c4b6.ts.net/deck/** — served over the tailnet, with the slide deck, the merged 13-page slides PDF, the 2–3 minute talk track and the full project report all downloadable from the same location.
+
 ## Repositories
 
 - [Merged runnable project](https://github.com/VariableThe/gait-biometrics): model-facing data adapter, A's standalone pipeline, B's models, C's evaluation and reproducible full experiments.
