@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" font-family="ui-monospace, 'DM Mono', Menlo, monospace" fill="#949a97">
+<line x1="66.0" y1="24.0" x2="66.0" y2="414.0" stroke="#2b2f2f" stroke-width="1"/>
+<line x1="66.0" y1="414.0" x2="890.0" y2="414.0" stroke="#2b2f2f" stroke-width="1"/>
+<line x1="106.0" y1="414.0" x2="106.0" y2="419.0" stroke="#2b2f2f" stroke-width="1"/>
+<text x="106.0" y="436.0" font-size="11" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">m1</text>
+<line x1="354.0" y1="414.0" x2="354.0" y2="419.0" stroke="#2b2f2f" stroke-width="1"/>
+<text x="354.0" y="436.0" font-size="11" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">m2</text>
+<line x1="602.0" y1="414.0" x2="602.0" y2="419.0" stroke="#2b2f2f" stroke-width="1"/>
+<text x="602.0" y="436.0" font-size="11" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">m3</text>
+<line x1="850.0" y1="414.0" x2="850.0" y2="419.0" stroke="#2b2f2f" stroke-width="1"/>
+<text x="850.0" y="436.0" font-size="11" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">m4</text>
+<line x1="66.0" y1="414.0" x2="890.0" y2="414.0" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="418.0" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">0%</text>
+<line x1="66.0" y1="316.5" x2="890.0" y2="316.5" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="320.5" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">2%</text>
+<line x1="66.0" y1="219.0" x2="890.0" y2="219.0" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="223.0" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">4%</text>
+<line x1="66.0" y1="121.5" x2="890.0" y2="121.5" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="125.5" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">6%</text>
+<line x1="66.0" y1="24.0" x2="890.0" y2="24.0" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="28.0" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">8%</text>
+<polyline points="106.0,72.8 354.0,292.1 602.0,292.1 850.0,414.0" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="106.0,389.6 354.0,267.8 602.0,243.4 850.0,340.9" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="106.0" cy="72.8" r="5" fill="transparent" stroke="#f59e0b" stroke-width="2.5"/>
+<circle cx="354.0" cy="292.1" r="5" fill="transparent" stroke="#f59e0b" stroke-width="2.5"/>
+<circle cx="602.0" cy="292.1" r="5" fill="transparent" stroke="#f59e0b" stroke-width="2.5"/>
+<circle cx="850.0" cy="414.0" r="5" fill="transparent" stroke="#f59e0b" stroke-width="2.5"/>
+<text x="106.0" y="456.0" font-size="10" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">template</text>
+<text x="850.0" y="456.0" font-size="10" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">DEV-selected</text>
+<rect x="106.0" y="41.0" width="14.0" height="14.0" fill="#f59e0b" rx="3"/>
+<text x="128.0" y="51.0" font-size="12" fill="#949a97" text-anchor="start" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">descriptive EER</text>
+<rect x="265.6" y="41.0" width="14.0" height="14.0" fill="#ea580c" rx="3"/>
+<text x="287.6" y="51.0" font-size="12" fill="#949a97" text-anchor="start" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">frozen-threshold false accepts</text>
+</svg>

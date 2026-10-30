@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" font-family="ui-monospace, 'DM Mono', Menlo, monospace" fill="#949a97">
+<line x1="66.0" y1="24.0" x2="66.0" y2="414.0" stroke="#2b2f2f" stroke-width="1"/>
+<line x1="66.0" y1="414.0" x2="890.0" y2="414.0" stroke="#2b2f2f" stroke-width="1"/>
+<line x1="66.0" y1="414.0" x2="890.0" y2="414.0" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="418.0" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">80%</text>
+<line x1="66.0" y1="316.5" x2="890.0" y2="316.5" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="320.5" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">85%</text>
+<line x1="66.0" y1="219.0" x2="890.0" y2="219.0" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="223.0" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">90%</text>
+<line x1="66.0" y1="121.5" x2="890.0" y2="121.5" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="125.5" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">95%</text>
+<line x1="66.0" y1="24.0" x2="890.0" y2="24.0" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="28.0" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">100%</text>
+<rect x="102.7" y="160.3" width="64.0" height="253.7" fill="#f59e0b" rx="3"/>
+<text x="134.7" y="438.0" font-size="10" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">cnn_lstm</text>
+<rect x="240.0" y="161.7" width="64.0" height="252.3" fill="#f59e0b" rx="3"/>
+<text x="272.0" y="438.0" font-size="10" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">se_convnet</text>
+<rect x="377.3" y="172.8" width="64.0" height="241.2" fill="#f59e0b" rx="3"/>
+<text x="409.3" y="438.0" font-size="10" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">gait_vit</text>
+<rect x="514.7" y="202.6" width="64.0" height="211.4" fill="#f59e0b" rx="3"/>
+<text x="546.7" y="438.0" font-size="10" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">multitask</text>
+<rect x="652.0" y="227.8" width="64.0" height="186.2" fill="#f59e0b" rx="3"/>
+<text x="684.0" y="438.0" font-size="10" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">cnn_baseline</text>
+<rect x="789.3" y="283.7" width="64.0" height="130.3" fill="#f59e0b" rx="3"/>
+<text x="821.3" y="438.0" font-size="10" fill="#949a97" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">WISDM</text>
+<line x1="66.0" y1="414.0" x2="890.0" y2="414.0" stroke="#949a97" stroke-width="1.2"/>
+<text x="66.0" y="14.0" font-size="11" fill="#949a97" text-anchor="start" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">accuracy</text>
+<text x="890.0" y="18.0" font-size="10" fill="#6a6f6d" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">axis floor 80%</text>
+</svg>

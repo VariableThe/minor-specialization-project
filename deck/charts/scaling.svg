@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" font-family="ui-monospace, 'DM Mono', Menlo, monospace" fill="#949a97">
+<line x1="66.0" y1="24.0" x2="66.0" y2="414.0" stroke="#2b2f2f" stroke-width="1"/>
+<line x1="66.0" y1="414.0" x2="890.0" y2="414.0" stroke="#2b2f2f" stroke-width="1"/>
+<line x1="66.0" y1="414.0" x2="890.0" y2="414.0" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="418.0" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">0%</text>
+<line x1="66.0" y1="325.4" x2="890.0" y2="325.4" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="329.4" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">5%</text>
+<line x1="66.0" y1="236.7" x2="890.0" y2="236.7" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="240.7" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">10%</text>
+<line x1="66.0" y1="148.1" x2="890.0" y2="148.1" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="152.1" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">15%</text>
+<line x1="66.0" y1="59.5" x2="890.0" y2="59.5" stroke="#2b2f2f" stroke-width="0.8"/>
+<text x="56.0" y="63.5" font-size="11" fill="#949a97" text-anchor="end" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">20%</text>
+<rect x="223.0" y="91.4" width="60.0" height="322.6" fill="#f59e0b" rx="3"/>
+<rect x="299.0" y="85.0" width="60.0" height="329.0" fill="#ea580c" rx="3"/>
+<text x="291.0" y="438.0" font-size="12" fill="#e3e6e3" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">small linear</text>
+<rect x="453.0" y="84.4" width="60.0" height="329.6" fill="#f59e0b" rx="3"/>
+<rect x="529.0" y="125.9" width="60.0" height="288.1" fill="#ea580c" rx="3"/>
+<text x="521.0" y="438.0" font-size="12" fill="#e3e6e3" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">larger ArcFace</text>
+<rect x="683.0" y="207.5" width="60.0" height="206.5" fill="#f59e0b" rx="3"/>
+<rect x="759.0" y="190.1" width="60.0" height="223.9" fill="#ea580c" rx="3"/>
+<text x="751.0" y="438.0" font-size="12" fill="#e3e6e3" text-anchor="middle" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">selected descriptors</text>
+<text x="66.0" y="14.0" font-size="11" fill="#949a97" text-anchor="start" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">mean fold EER</text>
+<rect x="156.0" y="41.0" width="14.0" height="14.0" fill="#f59e0b" rx="3"/>
+<text x="178.0" y="51.0" font-size="12" fill="#949a97" text-anchor="start" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">HAR</text>
+<rect x="226.3" y="41.0" width="14.0" height="14.0" fill="#ea580c" rx="3"/>
+<text x="248.3" y="51.0" font-size="12" fill="#949a97" text-anchor="start" font-family="ui-monospace, 'DM Mono', Menlo, monospace" font-weight="normal">WISDM</text>
+</svg>

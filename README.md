@@ -1,8 +1,14 @@
 # Minor Specialization Project — Gait-Based User Authentication
 
-**Team:** Student A (data pipeline), Student B (deep learning), Student C (evaluation). **Mentor:** Manjunath Hegde, MAHE.
+**Team:** Amaan (data pipeline), Aditya (deep learning), Nimisha (evaluation). **Mentor:** Manjunath Hegde, MAHE.
 
 This project studies passive user authentication from phone/wearable inertial gait signals. The complete pipeline runs, but authentication errors and unverified session generalization still make it a research system.
+
+## Where this stands
+
+In one paragraph: we built a complete pipeline from public inertial datasets (UCI HAR, WISDM AR v1.1, Santos v7), trained seven paper-inspired model families, and drove the verification error down with metric learning — WISDM EER **0.2010 → 0.0958** and HAR **0.1764 → 0.1044** under subject-held-out splits. On a first cross-day experiment (Santos v7, day-1 enrollment vs day-2 probes) we measured **7.0% EER** at **0.9888 ROC AUC**, with a calibration-frozen **0.5% FAR / 22% FRR** operating point. The currently selected authentication configuration is **Canonical362** (orientation-normalised, low-FAR); it was chosen by predeclared gates, and every candidate that failed its gates — covariance variants, waveform features, longer windows — is documented below and in `docs/` rather than quietly dropped. The honest headline limits: samples are small (50 genuine / 200 impostor cross-day claims), stress tests show severe rotation/noise fragility, and nothing here yet supports a phone-deployment claim.
+
+**Scope and claims.** All results are exploratory development (DEV) results unless explicitly marked as held-out TEST results. Thresholds are calibrated on validation scores and frozen before final evaluation; later studies never re-open original CALIB/TEST data or silently change a published threshold, which is why the addendum paragraphs below each end with an explicit claim-scope statement.
 
 ## Latest research — 25 October 2026
 
@@ -22,9 +28,9 @@ The [paired nuisance-covariance study](docs/nuisance_covariance_results.md) redu
 
 The [canonical orientation follow-up](docs/canonical_orientation_results.md) nominates an IDNet-inspired low-FAR DEV alternative: mean FAR 0.836%→0.500%, FRR 15.126%→14.787%, with 10/15 users no worse. Under the specified 30°/90° constant-coordinate rotations, its FRR stays 14.787% versus 85.190%/99.500% for control. EER worsens, five users have higher rejection, and noise/gain weaknesses remain. This is an exploratory DEV nomination, with no new TEST result or phone-deployment claim.
 
-The [robustness and simulation round](docs/robustness_results.md) completed 300 CPU covariance fits, 660 score replays and 297 timed synthetic policy replays. Neither full nor matrix-log covariance beats the retained control under all clean DEV gates. Fixed-threshold probe stresses expose large rotation/noise rejection failures. No original CALIB/TEST data was opened, and no published TEST result changes. Main and Student B suites pass 996/992 tests, each with 1,545 subtests.
+The [robustness and simulation round](docs/robustness_results.md) completed 300 CPU covariance fits, 660 score replays and 297 timed synthetic policy replays. Neither full nor matrix-log covariance beats the retained control under all clean DEV gates. Fixed-threshold probe stresses expose large rotation/noise rejection failures. No original CALIB/TEST data was opened, and no published TEST result changes. The main suite and Aditya's implementation suite both pass 996/992 tests, each with 1,545 subtests.
 
-The [multisensor and calibrated-decision hillclimb](docs/hillclimb_results.md) adds six-axis fusion, rotation invariants, lagged covariance and enrollment-score blending. On five **previously inspected** Santos cross-day users, the latest DEV-selected method has descriptive EER 0%, but its independently calibrated operating threshold still accepts **3/200 impostor claims (1.5%)**, with **0/50 genuine rejections**. The matched lagcov control accepts 7/200 and rejects 0/50. This exploratory result does not prove perfect authentication or meet the intended 1% test FAR. Full candidate matrices, failed audit compute, per-user errors, source hashes and CPU timings accompany the code.
+The [multisensor and calibrated-decision hillclimb](docs/hillclimb_results.md) adds six-axis fusion, rotation invariants, lagged covariance and enrollment-score blending. On five previously inspected Santos cross-day users, the latest DEV-selected method has descriptive EER 0%, but its independently calibrated operating threshold still accepts 3/200 impostor claims (1.5%), with 0/50 genuine rejections. The matched lagcov control accepts 7/200 and rejects 0/50. This exploratory result does not prove perfect authentication or meet the intended 1% test FAR. Full candidate matrices, failed audit compute, per-user errors, source hashes and CPU timings accompany the code.
 
 A subsequent [DEV-only calibration comparison](https://github.com/VariableThe/gait-biometrics/blob/main/reports/2026-10-24-calibration/README.md) nominates pooled calibration followed by metric refitting: mean validation FAR 0.917%→0.836% and FRR 19.276%→15.126%, with 12/15 users no worse. One user remains completely rejected. It opens no original CALIB/TEST data and does not change the published test result; exact count-based gates, the discarded first attempt and full per-user outcomes are retained.
 
@@ -32,15 +38,15 @@ The [existing-data engineering follow-up](https://github.com/VariableThe/gait-bi
 
 ## Hosted deployment
 
-The presentation deck (chart-first slides, per-slide speaker notes) and the PDF exports are deployed at **https://workstation.tail13c4b6.ts.net/deck/** — served over the tailnet, with the slide deck, the merged 13-page slides PDF, the 2–3 minute talk track and the full project report all downloadable from the same location.
+The presentation deck (chart-first slides, per-slide speaker notes) and the PDF exports are publicly downloadable at **https://nc.vrbl.win/s/HpybyPYec8J4jAP** (Nextcloud share): the slide deck (13 slides, graph-first), the merged slides PDF, the 2–3 minute talk track and the full project report. The same files are also served over the team tailnet at `https://workstation.tail13c4b6.ts.net/deck/` (reachable from team machines only).
 
 ## Repositories
 
-- [Merged runnable project](https://github.com/VariableThe/gait-biometrics): model-facing data adapter, A's standalone pipeline, B's models, C's evaluation and reproducible full experiments.
-- [Student B + C](https://github.com/VariableThe/gait-biometrics-student-b/tree/feat/student-b-models): separate implementation history; default branch `feat/student-b-models`.
-- [Student A standalone](https://github.com/128Amaan/minor_specialisation_studentA): source data pipeline and NPZ exports. Its pending standalone contribution is also mirrored in the merged project.
+- [Merged runnable project](https://github.com/VariableThe/gait-biometrics): model-facing data adapter, Amaan's standalone pipeline, Aditya's models, Nimisha's evaluation and reproducible full experiments.
+- [Aditya + Nimisha implementation history](https://github.com/VariableThe/gait-biometrics-student-b/tree/feat/student-b-models): separate implementation history; default branch `feat/student-b-models`.
+- [Amaan's standalone pipeline](https://github.com/128Amaan/minor_specialisation_studentA): source data pipeline and NPZ exports. Its pending standalone contribution is also mirrored in the merged project.
 
-This hub contains [the original reading plan](Research_Reading_Plan_Gait.docx), `papers/student_b/`, `papers/common/`, the [primary literature/fidelity audit](docs/research_audit.md), and [the original mentor dataset link](link.md). Use the runnable merged repository for experiments.
+This hub contains [the original reading plan](Research_Reading_Plan_Gait.docx) (the mentor-approved literature plan the team worked from), `papers/student_b/` and `papers/common/` (the supplied PDFs, keyed to the B1–B7 tracks), the [primary literature/fidelity audit](docs/research_audit.md), and [the original mentor dataset link](link.md) (the dataset URL shared at project kickoff, kept for provenance). Use the runnable merged repository for experiments.
 
 ## Current state — 23 October 2026
 
@@ -76,25 +82,19 @@ Implemented methods include identity-balanced batches, batch-hard and supervised
 
 ## Controlled scaling and cross-day follow-up
 
-The next [48-run GPU study](https://github.com/VariableThe/gait-biometrics/blob/04e824ca4aa07046d7b13cc9f4d40ac141dfc9b7/reports/2026-10-23-scaling/README.md)
-compares width 32/96 encoders and linear/ArcFace identity heads with three subject
-folds, two seeds and 40 fixed final epochs. Four other users per source calibrate
-thresholds after selection. Source TEST is never loaded in this study.
+The next [48-run GPU study](https://github.com/VariableThe/gait-biometrics/blob/04e824ca4aa07046d7b13cc9f4d40ac141dfc9b7/reports/2026-10-23-scaling/README.md) compares width 32/96 encoders and linear/ArcFace identity heads with three subject folds, two seeds and 40 fixed final epochs. Four other users per source calibrate thresholds after selection. Source TEST is never loaded in this study.
 
 | Development mean fold EER | Small linear | Larger ArcFace | Selected descriptors |
 | --- | ---: | ---: | ---: |
 | HAR | 18.203% | 18.593% | **11.647%** |
 | WISDM | 18.560% | 16.250% | **12.633%** |
 
-These are development comparisons. Scaling helps WISDM, slightly worsens HAR,
-and loses to descriptor controls on both. BF16 was slower in every matched GPU
-shape, so FP32 remains the default. All candidates, histories, raw timings and
-failures are retained; mirrors are the same experiments, not replications.
+These are development comparisons. Scaling helps WISDM, slightly worsens HAR, and loses to descriptor controls on both. BF16 was slower in every matched GPU shape, so FP32 remains the default. All candidates, histories, raw timings and failures are retained; the mirrored repositories hold the same experiments, not independent replications.
 
 The [first genuine cross-day experiment](https://github.com/VariableThe/gait-biometrics/blob/f9bcf48/reports/2026-10-23-cross-day/README.md)
 uses the public Santos v7 dataset and a predeclared 15/5/5 development/calibration/test
 identity split. Day1 enrollment against day2 probes from five untouched users
-gives **7.0% EER**, **0.9888 AUC**, and calibration-frozen **0.5% FAR / 22% FRR**.
+gives **7.0% EER** and **0.9888 AUC**, at a calibration-frozen **0.5% FAR / 22% FRR** operating point.
 There are only 50 genuine and 200 impostor claims; user 6 has 8/10 genuine claims rejected.
 This establishes a small controlled leg-sensor result, with substantial usability
 limits. Its scores cannot be treated as a controlled improvement over another
@@ -106,7 +106,7 @@ New contributions: [scaling origin](https://github.com/VariableThe/gait-biometri
 [cross-day origin](https://github.com/VariableThe/gait-biometrics/pull/4),
 [cross-day mirror](https://github.com/VariableThe/gait-biometrics-student-b/pull/7).
 Local final suites passed 331 tests + 311 subtests in the merged project and 327 + 311
-in Student B. Source/lock/evidence reviews are separate from those test runs.
+in the Aditya/Nimisha mirror repository. Source/lock/evidence reviews are separate from those test runs.
 
 ## Run the project
 

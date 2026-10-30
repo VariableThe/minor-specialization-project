@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="agent-kit slide-deck">
+<title>Gait Biometrics</title>
+<meta name="author" content="Amaan, Aditya, Nimisha · MAHE">
+<style>
+body.theme-minimal {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5f6368;
+    --accent: #2563eb;
+    --code-bg: #f1f3f4;
+    --body-font: system-ui, sans-serif;
+    --title-font: system-ui, sans-serif;
+}
+body.theme-editorial {
+    --bg: #faf7f2;
+    --fg: #262220;
+    --muted: #7a6a5f;
+    --accent: #b3541e;
+    --code-bg: #efe9e0;
+    --body-font: Georgia, 'Times New Roman', serif;
+    --title-font: Georgia, 'Times New Roman', serif;
+}
+body.theme-midnight {
+    --bg: #0f1220;
+    --fg: #e8eaf2;
+    --muted: #9aa1b5;
+    --accent: #7c9cff;
+    --code-bg: #1c2033;
+    --body-font: system-ui, sans-serif;
+    --title-font: system-ui, sans-serif;
+}
+body.theme-terminal {
+    --bg: #0c0c0c;
+    --fg: #c7fcc4;
+    --muted: #6a9c67;
+    --accent: #ffd75f;
+    --code-bg: #141414;
+    --body-font: 'DejaVu Sans Mono', Menlo, monospace;
+    --title-font: 'DejaVu Sans Mono', Menlo, monospace;
+}
+body.theme-gait {
+    --bg: #0c0e0e;
+    --fg: #e3e6e3;
+    --muted: #949a97;
+    --accent: #f59e0b;
+    --code-bg: #16191a;
+    --dot-near: rgba(245,247,244,0.09);
+    --dot-far: rgba(245,247,244,0.04);
+    --glow: rgba(245,158,11,0.10);
+    --body-font: 'DM Sans', system-ui, sans-serif;
+    --title-font: 'DM Sans', system-ui, sans-serif;
+}
+body.theme-swiss {
+    --bg: #ffffff;
+    --fg: #000000;
+    --muted: #606060;
+    --accent: #d5261e;
+    --code-bg: #efefef;
+    --body-font: 'Helvetica Neue', Arial, sans-serif;
+    --title-font: 'Helvetica Neue', Arial, sans-serif;
+}
+
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+html { background: var(--bg); }
+html::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 45% at 50% -10%, var(--glow, rgba(245,158,11,0.10)), transparent 70%);
+}
+body {
+  background: var(--bg);
+  background-image:
+    radial-gradient(var(--dot-near, rgba(245,247,244,0.09)) 1px, transparent 1.5px),
+    radial-gradient(var(--dot-far, rgba(245,247,244,0.04)) 1px, transparent 1.5px);
+  background-size: 84px 84px, 21px 21px;
+  animation: gait-drift 120s linear infinite;
+  color: var(--fg);
+  font-family: var(--body-font); overflow: hidden;
+}
+@keyframes gait-drift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: -84px -84px, -21px -21px; }
+}
+@media (prefers-reduced-motion: reduce) { body { animation: none; } }
+#deck { height: 100vh; }
+section.slide {
+  display: none; height: 100vh; padding: 8vh 10vw;
+  flex-direction: column; justify-content: center;
+}
+section.slide.active { display: flex; }
+body.overview section.slide {
+  display: block; height: auto; min-height: 120px; padding: 16px;
+  border: 1px solid var(--muted); margin: 8px; font-size: 0.9rem;
+}
+h1, h2 { font-family: var(--title-font); color: var(--fg); }
+h1 { font-size: 2.6rem; margin: 0 0 2rem; }
+h2 { font-size: 2rem; margin: 0 0 1.5rem; }
+section h2 { letter-spacing: -0.015em; }
+.slide-footer {
+  position: absolute; bottom: 4vh; left: 10vw; right: 10vw;
+  display: flex; justify-content: space-between;
+  font-family: 'DM Mono', ui-monospace, monospace;
+  font-size: 0.72rem; color: var(--muted); opacity: 0.85;
+}
+/* --- stat callouts (pptx-skill: big numbers, small labels) --- */
+section.slide.layout-stats ul {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1.2rem;
+}
+section.slide.layout-stats li {
+  background: rgba(22, 25, 26, 0.55); border: 1px solid rgba(44, 47, 47, 0.8);
+  border-radius: 12px; padding: 1.2rem 1.3rem; font-size: 0.95rem; line-height: 1.45;
+  color: var(--muted);
+}
+section.slide.layout-stats li strong {
+  display: block; font-size: 2.5rem; font-weight: 600; line-height: 1.15;
+  color: var(--accent); margin-bottom: 0.35rem; letter-spacing: -0.02em;
+}
+section.slide.layout-stats li strong em { font-style: normal; color: var(--fg); font-size: 1.3rem; }
+/* --- two-column comparison --- */
+section.slide.layout-split ul {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 3rem;
+}
+section.slide.layout-split li {
+  font-size: 1.05rem; line-height: 1.5; padding-left: 1.1rem; position: relative;
+}
+section.slide.layout-split li::before {
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--accent);
+}
+section.slide.layout-split li strong { color: var(--accent); font-weight: 600; }
+/* --- timeline (real sequence: phases) --- */
+section.slide.layout-timeline ol {
+  list-style: none; padding: 0; margin: 0; display: grid; gap: 1.4rem;
+}
+section.slide.layout-timeline ol li { position: relative; padding-left: 2.6rem; }
+section.slide.layout-timeline ol li::before {
+  counter-increment: tl; content: counter(tl, decimal-leading-zero);
+  position: absolute; left: 0; top: 0;
+  font-family: 'DM Mono', ui-monospace, monospace; font-size: 0.85rem;
+  color: var(--accent); border: 1px solid rgba(245,158,11,0.45); border-radius: 50%;
+  width: 1.7rem; height: 1.7rem; display: flex; align-items: center; justify-content: center;
+}
+section.slide.layout-timeline ol { counter-reset: tl; }
+section.slide.layout-timeline ol li::after {
+  content: ""; position: absolute; left: 0.83rem; top: 1.9rem; bottom: -1.3rem;
+  width: 1px; background: rgba(148, 154, 151, 0.35);
+}
+section.slide.layout-timeline ol li:last-child::after { display: none; }
+section.slide.layout-timeline li strong { color: var(--fg); font-weight: 600; }
+section.slide.layout-timeline li { color: var(--muted); line-height: 1.55; font-size: 1.05rem; }
+p { font-size: 1.35rem; line-height: 1.6; }
+blockquote {
+  font-size: 1.6rem; font-style: italic; margin: 0 4vw;
+  border-left: 6px solid var(--accent); padding-left: 2rem; color: var(--fg);
+}
+pre {
+  background: var(--code-bg); padding: 1rem; border-radius: 8px;
+  overflow: auto; font-size: 1rem;
+}
+code { font-family: ui-monospace, monospace; }
+ul, ol { font-size: 1.35rem; line-height: 1.7; }
+section.slide.layout-title { text-align: center; }
+section.slide.layout-title h1, section.slide.layout-title h2 { font-size: 3rem; }
+section.slide.layout-quote h2 { display: none; }
+section.slide.layout-chart h2 { font-size: 1.6rem; margin-bottom: 1.2rem; }
+section.slide.layout-chart img { max-width: 92%; max-height: 58vh; }
+img { max-width: 70%; max-height: 60vh; display: block; margin: 0 auto; }
+#chrome {
+  position: fixed; bottom: 16px; right: 16px; display: flex; gap: 8px;
+  align-items: center; z-index: 20;
+}
+#chrome button {
+  background: var(--code-bg); color: var(--fg); border: 1px solid var(--muted);
+  border-radius: 6px; padding: 6px 12px; font-size: 1rem; cursor: pointer;
+}
+#counter { color: var(--muted); font-size: 0.9rem; }
+#progress { position: fixed; bottom: 0; left: 0; width: 100%; height: 4px; background: var(--code-bg); }
+#progress div { height: 100%; width: 0; background: var(--accent); }
+#notes-panel {
+  position: fixed; bottom: 48px; left: 16px; right: 16px; max-width: 60ch;
+  background: var(--code-bg); color: var(--fg); padding: 12px 16px;
+  border: 1px solid var(--muted); border-radius: 8px; z-index: 30;
+}
+#notes-panel[hidden] { display: none; }
+#help {
+  position: fixed; inset: 0; display: flex; align-items: center;
+  justify-content: center; background: color-mix(in srgb, var(--bg) 90%, transparent);
+  z-index: 40;
+}
+#help[hidden] { display: none; }
+#help table {
+  background: var(--code-bg); border-collapse: collapse; padding: 2rem;
+  color: var(--fg);
+}
+#help td { border: 1px solid var(--muted); padding: 8px 16px; }
+@media (prefers-reduced-motion: no-preference) {
+  section.slide.active { animation: fade 160ms ease-out; }
+  @keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+}
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  body { overflow: visible; background: var(--bg); }
+  #deck { height: auto; }
+  section.slide {
+    display: flex; height: auto; min-height: 95vh; page-break-after: always;
+  }
+  #chrome, #progress, #notes-panel, #help { display: none; }
+}
+
+</style>
+</head>
+<body class="theme-gait" data-deck-title="Gait Biometrics">
+<div id="deck" role="main">
+<section class="slide title-slide" data-index="0" aria-label="Slide 1"><h1>Gait Biometrics</h1><ul><li>Passive user authentication from wearable and smartphone inertial gait signals</li><li>IMU metric-learning baseline with paper-inspired classification and efficiency comparisons</li><li>Built by Amaan (data pipeline), Aditya (deep learning) and Nimisha (evaluation)</li><li>Mentored by Manjunath Hegde · MAHE</li></ul></section><section class="slide" data-index="1" aria-label="Slide 2"><h2>The idea in plain English</h2><p>When you walk, your phone and watch feel the motion through their accelerometers and gyroscopes — tiny sensors that measure how you move. Your stride, your rhythm and your posture all leave a signature in that signal.</p><p>Gait authentication is the idea that this signature is personal enough to recognise you: instead of typing a password or pressing a fingerprint, the device just knows it is still you because it recognises how you move.</p></section><section class="slide layout-chart" data-index="2" aria-label="Slide 3"><h2>Metric learning collapsed the equal-error rate</h2><p><img src="charts/eer-bars.svg" alt="EER before and after metric learning, WISDM and HAR"></p></section><section class="slide layout-chart" data-index="3" aria-label="Slide 4"><h2>Cross-day authentication</h2><p><img src="charts/roc.svg" alt="ROC curve with chance diagonal and frozen-threshold operating point"></p></section><section class="slide layout-chart" data-index="4" aria-label="Slide 5"><h2>Four methods, one falling error line</h2><p><img src="charts/hillclimb.svg" alt="Descriptive EER and frozen-threshold false accepts across the four Santos methods"></p></section><section class="slide layout-chart" data-index="5" aria-label="Slide 6"><h2>Canonical orientation across three configurations</h2><p><img src="charts/orientation.svg" alt="FAR, FRR and mean EER for Control362, Canonical336, Canonical362"></p></section><section class="slide layout-chart" data-index="6" aria-label="Slide 7"><h2>FRR under stress — the honest weak point</h2><p><img src="charts/stress.svg" alt="FRR under clean baseline versus rotation and noise stress"></p></section><section class="slide layout-chart" data-index="7" aria-label="Slide 8"><h2>Activity classification on UCI HAR</h2><p><img src="charts/activity.svg" alt="Accuracy per model, axis floored at 80 percent"></p></section><section class="slide layout-chart" data-index="8" aria-label="Slide 9"><h2>Dev mean fold EER by method</h2><p><img src="charts/scaling.svg" alt="Scaling study: HAR and WISDM EER by method"></p></section><section class="slide layout-chart" data-index="9" aria-label="Slide 10"><h2>Measured execution gains</h2><p><img src="charts/speedups.svg" alt="CPU to CUDA speedups per workload"></p></section><section class="slide layout-split" data-index="10" aria-label="Slide 11"><h2>Paper → implementation map</h2><ul><li>B1 Dehzangi 2017 (Sensors) — multi-sensor fusion CNN</li><li>B2 Chen 2020 (IMWUT) — METIER multi-task activity+user</li><li>B3 Mekruksavanich &amp; Jitpattanakul — DeepConvLSTM continuous auth</li><li>B4 Sheng &amp; Li 2020 (Neurocomputing) — Siamese denoising autoencoders</li><li>B5–B7 — SE-ConvNet, edge gait (pruning/quantization/ONNX), SEGait-ConViT</li></ul></section><section class="slide layout-timeline" data-index="11" aria-label="Slide 12"><h2>How the work flowed</h2><ol><li><strong>Phase 1 — Amaan, data pipeline:</strong> UCI HAR + authentic WISDM AR v1.1, restored participant IDs, 128-sample windowing, frozen data/adapter.py contract</li><li><strong>Phase 2 — Aditya, deep learning:</strong> all 7 paper tracks (B1–B7), metric-learning extension drove WISDM EER 0.2010 → 0.0958, HAR 0.1764 → 0.1044</li><li><strong>Phase 3 — Nimisha, evaluation:</strong> EER/FAR/FRR semantics + ROC, cross-day Santos evaluation, calibration-frozen threshold, robustness tests</li></ol></section><section class="slide layout-quote" data-index="12" aria-label="Slide 13"><h2>Where this leaves us</h2><blockquote>Passive gait authentication is promising — metric learning and canonical orientation both move the number — but orientation and noise fragility, and small evaluation sets, mean it is not yet usable for real authentication. The honest numbers are the deliverable.</blockquote></section>
+</div>
+<aside class="notes" id="notes-0" hidden>Welcome. One minute: the project idea, then the results as graphs, then honest limits.</aside><aside class="notes" id="notes-1" hidden>This is the hero paragraph from the site, verbatim.</aside><aside class="notes" id="notes-2" hidden>WISDM 0.2010 to 0.0958 via multiscale batch-hard ensemble; HAR 0.1764 to 0.1044 via descriptors + covariance normalization. Be honest: the primary HAR neural winner actually worsened to 0.2146, so the descriptor route carried the improvement, not model size. These errors still do not establish usable passive authentication.</aside><aside class="notes" id="notes-3" hidden>Santos v7, predeclared 15/5/5 split, day-1 enrollment vs day-2 probes from 5 untouched users. AUC 0.9888, frozen FAR 0.5%, FRR 22%. Small controlled leg-sensor result: only 50 genuine / 200 impostor claims; 8/10 genuine claims for one user rejected — usability limits. Say this out loud.</aside><aside class="notes" id="notes-4" hidden>m1 historical acceleration + mean template; m2 six-axis axes/invariants + two templates; m3 add lagged covariance; m4 DEV-selected frozen threshold. Frozen false accepts run 1/200 to 6/200 to 7/200 to 3/200 (1.5%); genuine rejections 11/50 to 1/50 to 0/50 to 0/50. At 3/200 the frozen result is not perfect and does not meet the 1% test FAR target.</aside><aside class="notes" id="notes-5" hidden>Under 30/90 degree constant-coordinate rotation its FRR stays 14.787% versus 85.190%/99.500% for the control — orientation-normalisation removes rotation sensitivity, at the cost of a slightly worse clean EER. Folds with FAR above 2%: 3/20 to 3/20 to 2/20.</aside><aside class="notes" id="notes-6" hidden>Clean threshold stays fixed; stress never selects a winner. This is the honest weak point — orientation/noise fragility.</aside><aside class="notes" id="notes-7" hidden>2,947 test windows. cnn_lstm (DeepConvLSTM) tops the grid; errors concentrate in SITTING↔STANDING confusion; walking classes are near-clean. WISDM activity_3 is near-perfect at 120/121.</aside><aside class="notes" id="notes-8" hidden>Descriptors win on both sources — model size alone does not.</aside><aside class="notes" id="notes-9" hidden>Execution measurements, separate from biometric quality. Controlled CSV windowing 15.72x vs baseline.</aside><aside class="notes" id="notes-10" hidden>Paper-inspired adaptations, not exact reproductions. Full grid on the site.</aside><aside class="notes" id="notes-11" hidden>Two dependencies worth naming: B was blocked on A for WISDM subject IDs; C&#x27;s finding that the Siamese baseline was unusable (EER 0.4162) fed back into B&#x27;s metric-learning work.</aside>
+<nav id="chrome" aria-label="Deck controls">
+  <button id="prev" aria-label="Previous slide">&#9664;</button>
+  <button id="next" aria-label="Next slide">&#9654;</button>
+  <span id="counter" aria-live="polite">1 / 13</span>
+</nav>
+<div id="progress" role="progressbar" aria-label="Slide progress"><div id="progress-fill"></div></div>
+<div id="notes-panel" hidden aria-label="Speaker notes"></div>
+<div id="help" hidden aria-label="Keyboard shortcuts">
+  <table>
+    <tr><td>&rarr; / Space / PageDown</td><td>next slide</td></tr>
+    <tr><td>&larr; / PageUp</td><td>previous slide</td></tr>
+    <tr><td>Home / End</td><td>first / last slide</td></tr>
+    <tr><td>t</td><td>cycle theme</td></tr>
+    <tr><td>f</td><td>fullscreen</td></tr>
+    <tr><td>o</td><td>overview grid</td></tr>
+    <tr><td>n</td><td>speaker notes</td></tr>
+    <tr><td>?</td><td>this help</td></tr>
+    <tr><td>Esc</td><td>close overlays</td></tr>
+  </table>
+</div>
+<script>
+
+(function () {
+  var slides = [].slice.call(document.querySelectorAll('section.slide'));
+  var notes = [].slice.call(document.querySelectorAll('aside.notes'));
+  var counter = document.getElementById('counter');
+  var progress = document.getElementById('progress-fill');
+  var notesPanel = document.getElementById('notes-panel');
+  var help = document.getElementById('help');
+  var themes = ["minimal", "editorial", "midnight", "terminal", "gait", "swiss"];
+  var current = 0;
+
+  function clamp(n) { return Math.max(0, Math.min(slides.length - 1, n)); }
+
+  function show(n) {
+    current = clamp(n);
+    slides.forEach(function (s, i) {
+      s.classList.toggle('active', i === current);
+      s.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+    });
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+    progress.style.width = (100 * (current + 1) / slides.length) + '%';
+    if (!notesPanel.hidden) {
+      notesPanel.textContent = notes[current] ? notes[current].textContent : '';
+    }
+    if (location.hash !== '#/' + (current + 1)) {
+      location.hash = '#/' + (current + 1);
+    }
+  }
+
+  function cycleTheme() {
+    var body = document.body;
+    var used = themes.filter(function (t) { return body.classList.contains('theme-' + t); });
+    var index = used.length ? themes.indexOf(used[0]) : -1;
+    themes.forEach(function (t) { body.classList.remove('theme-' + t); });
+    body.classList.add('theme-' + themes[(index + 1) % themes.length]);
+  }
+
+  document.addEventListener('keydown', function (event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) { return; }
+    switch (event.key) {
+      case 'ArrowRight': case 'PageDown': case ' ': show(current + 1); event.preventDefault(); break;
+      case 'ArrowLeft': case 'PageUp': show(current - 1); event.preventDefault(); break;
+      case 'Home': show(0); break;
+      case 'End': show(slides.length - 1); break;
+      case 't': cycleTheme(); break;
+      case 'f':
+        if (document.fullscreenElement) { document.exitFullscreen(); }
+        else if (document.documentElement.requestFullscreen) { document.documentElement.requestFullscreen(); }
+        break;
+      case 'o': document.body.classList.toggle('overview'); break;
+      case 'n':
+        notesPanel.hidden = !notesPanel.hidden;
+        if (!notesPanel.hidden) { notesPanel.textContent = notes[current] ? notes[current].textContent : ''; }
+        break;
+      case '?': help.hidden = !help.hidden; break;
+      case 'Escape':
+        help.hidden = true; notesPanel.hidden = true;
+        document.body.classList.remove('overview');
+        break;
+    }
+  });
+
+  document.getElementById('prev').addEventListener('click', function () { show(current - 1); });
+  document.getElementById('next').addEventListener('click', function () { show(current + 1); });
+
+  var deepLink = location.hash.match(/^#\/(\d+)/);
+  show(deepLink ? parseInt(deepLink[1], 10) - 1 : 0);
+  window.addEventListener('hashchange', function () {
+    var m = location.hash.match(/^#\/(\d+)/);
+    if (m) { show(parseInt(m[1], 10) - 1); }
+  });
+})();
+
+</script>
+</body>
+</html>

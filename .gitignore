@@ -1,3 +1,14 @@
 .DS_Store
 # Local clone of the Student B repo (see README); expected on disk, never committed.
 gait-biometrics-student-b/
+
+# Frontend (Next.js has its own .gitignore; keep builds out of the hub)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Deck: slide tooling and build intermediates (deliverables are committed)
+deck/pptx/
+deck/charts_pdf/
+deck/deck.py
+frontend/AGENTS.md
